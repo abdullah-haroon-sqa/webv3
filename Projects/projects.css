@@ -1,0 +1,7 @@
+.projects{
+    margin: 1rem 2rem;
+}
+.projects a {
+    color: blue;
+    text-decoration: none;
+}

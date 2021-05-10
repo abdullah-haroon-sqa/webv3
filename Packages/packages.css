@@ -1,0 +1,113 @@
+.background {
+    background: url("../images/plans-background.jpg") center/cover;
+    filter: blur(1px) grayscale(40%);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    /* z-index of 0 does not work here because it is the browser default value and hence it does not work.  */
+}
+
+.package {
+    width: 80%;
+    margin: 1rem 0px;
+    border: 4px solid #0e4f1f;
+    border-left: none;
+    position: relative;
+    /*z-index: 100; z-index does not work for the elements that do not have a position property well obviously other than the default static value. Therfore it does not work here*/
+    overflow: hidden;
+}
+
+.package:hover,
+.package:active {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-color: #ff5454 !important;
+}
+
+.package a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 2rem;
+}
+
+.package__badge {
+    /*position: relative; Another concept: i.e. when top and left are applied to the position: relative. The element will from its initial position instaed from the viewport or html element. */
+    position: absolute;
+    /* position absolute to the ancestor element .package which position is relative. */
+    /* if you have ancestors with the position property applied, then the element, the absolutely positioned element, will be positioned in relation to the closet ancestor which has such a position property applied. // means its viewport will not be the HTML element but the ancestor element itself. */
+    /* the width:100% of our element with the position: absolute applied refers to the ancestor's content + padding 
+        Now the containg block for an element with the position: absolute declaration applied is the closet ancestor which is not position static.
+    
+    */
+    top: 0;
+    right: 0;
+    margin: 1.2rem;
+    font-size: 1rem;
+    color: white;
+    background: red;
+    padding: 0.5rem;
+    width: 12rem;
+    text-align: center;
+    transform: rotateZ(40deg) translateX(3rem) translateY(-2rem);
+    transform-origin: center;
+    /* Although it would not have any effect on it because transform origin: center is the default property. */
+}
+
+.package__subtitle {
+    color: #979797;
+}
+
+.package__info {
+    padding: 1rem;
+    border: 2px solid #0e4f1f;
+    font-size: 1.2rem;
+    color: #0e4f1f;
+    background: white;
+}
+
+.clearfix {
+    clear: both;
+}
+
+#plus {
+    background: rgba(213, 255, 220, 0.95);
+}
+
+#free {
+    background: rgba(234, 252, 237, 0.95);
+    float: right;
+    border-left: 4px solid #0e4f1f;
+    border-right: none;
+}
+
+#premium {
+    background: rgba(14, 79, 31, 0.95);
+}
+
+#premium .package__title {
+    color: white;
+}
+
+#premium .package__subtitle {
+    color: #bbb;
+}
+
+@media (min-width: 40rem) {
+    main {
+        max-width: 1500px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .package {
+        border-left: 4px solid #0e4f1f;
+    }
+    #free {
+        border-right: 4px solid #0e4f1f;
+    }
+    #free:hover,
+    #free:active {
+        border-right-color: #ff5454;
+    }
+}
