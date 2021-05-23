@@ -72,5 +72,18 @@ form.addEventListener('submit', e => {
         }).catch(error => {
             console.log(error);
         });
+    window.localStorage.setItem('city', cityName);
 
-})
+});
+
+
+if (localStorage.getItem('city')) {
+    getInfo(localStorage.getItem('city'))
+        .then(data => {
+            // console.log(data);
+            updateUI(data);
+        }).catch(error => {
+            console.log(error);
+        });
+}
+
